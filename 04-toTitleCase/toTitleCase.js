@@ -16,7 +16,7 @@ Hint: Trying using slice() and .toUpperCase()
 */
 
 const capitalizeWord = (word) => {
-  return
+  return word[0].toUpperCase() + word.slice(1)
 }
 
 /* 
@@ -25,7 +25,10 @@ How can you reuse the function you just wrote?
 */
 
 const toTitleCase = (str) => {
-  return
+  return str
+    .split(' ')
+    .map((w) => capitalizeWord(w))
+    .join(' ')
 }
 
 // Test your functions
