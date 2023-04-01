@@ -13,7 +13,7 @@ Example output: "I'M 😱 ALMOST 😱 OUT 😱 OF 😱 COFFEE!"
 */
 
 const panic = (str) => {
-  return
+  return str.split(' ').join(' 😱 ').toUpperCase() + '!'
 }
 
 // Test your function
