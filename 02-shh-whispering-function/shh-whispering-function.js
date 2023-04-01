@@ -14,7 +14,11 @@ Hint: endsWith and slice
 */
 
 const whisper = (str) => {
-  return
+  if (str.endsWith('!')) {
+    // scrimba!
+    return 'shh... ' + str.slice(0, -1).toLowerCase()
+  }
+  return 'shh... ' + str.toLowerCase()
 }
 
 console.log(whisper('PLEASE STOP SHOUTING.'))
