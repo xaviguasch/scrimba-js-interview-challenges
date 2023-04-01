@@ -22,7 +22,17 @@ Your function's output should look something like this:
  */
 
 const awardBonuses = () => {
-  return
+  for (let i = 1; i <= 100; i++) {
+    if (i % 3 === 0 && i % 5 === 0) {
+      console.log(`${i} - Divisible by both 3 and 5 - JACKPOT! 1 Million and a Yacht!`)
+    } else if (i % 3 === 0) {
+      console.log(`${i} - Divisible by 3 - Vacation!`)
+    } else if (i % 5 === 0) {
+      console.log(`${i} - Divisible by 5 - $100,000 bonus!`)
+    } else {
+      console.log(`${i} - Not divisible by 3 or 5 - :(`)
+    }
+  }
 }
 
 awardBonuses()
