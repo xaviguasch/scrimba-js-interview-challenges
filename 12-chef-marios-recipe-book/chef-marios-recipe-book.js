@@ -36,4 +36,18 @@ function removeDupesFromArray(arr) {
   return newArr
 }
 
-console.log(removeDupesFromArray(eggScrambleRecipe))
+// ALTERNATIVE MORE EFFICIENT SOLUTION
+function removeDupesFromArrayEfficient(arr) {
+  const hashMap = {}
+
+  return arr.filter((el) => {
+    if (!hashMap[el]) {
+      hashMap[el] = true
+      return true
+    }
+    return false
+  })
+}
+
+// console.log(removeDupesFromArray(eggScrambleRecipe))
+console.log(removeDupesFromArrayEfficient(eggScrambleRecipe))
