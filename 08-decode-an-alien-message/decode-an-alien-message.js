@@ -23,8 +23,20 @@ Example input: !htrae ot emocleW
 Example output: Welcome to earth!
 */
 
+// built in string methods
+// function reverseString(str){
+//     return str.split('').reverse().join('');
+// }
+
+// reverse a string manually
 function reverseString(str) {
-  return str
+  // initialize a new empty string
+  let reversedString = ''
+  // loop through original string backwards, adding each character to the new string
+  for (let i = str.length - 1; i >= 0; i--) {
+    reversedString += str[i]
+  }
+  return reversedString
 }
 
 /*
@@ -36,7 +48,7 @@ reverse the strings manually.
 */
 
 function reverseStringsInArray(arr) {
-  return arr
+  return arr.map((item) => reverseString(item))
 }
 
 console.log(reverseString(title))
