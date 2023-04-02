@@ -49,5 +49,11 @@ function removeDupesFromArrayEfficient(arr) {
   })
 }
 
+// ANOTHER ALTERNATIVE MORE EFFICIENT SOLUTION
+function removeDupesFromArrayAnotherEfficient(arr) {
+  return [...new Set(arr)]
+}
+
 // console.log(removeDupesFromArray(eggScrambleRecipe))
-console.log(removeDupesFromArrayEfficient(eggScrambleRecipe))
+// console.log(removeDupesFromArrayEfficient(eggScrambleRecipe))
+// console.log(removeDupesFromArrayAnotherEfficient(eggScrambleRecipe))
