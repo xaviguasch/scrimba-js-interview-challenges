@@ -12,7 +12,18 @@ Example input: "rotator"
 Example output: true
 */
 
-function isPalindrome(str) {}
+function isPalindrome(str) {
+  // using methods
+  // const reversedWord = str.split('').reverse().join('')
+
+  let reversedWord = ''
+
+  for (let i = str.length - 1; i >= 0; i--) {
+    reversedWord += str[i]
+  }
+
+  return reversedWord === str
+}
 
 // Test your function
 console.log(isPalindrome('abba'))
