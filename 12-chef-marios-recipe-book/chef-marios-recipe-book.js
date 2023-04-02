@@ -25,7 +25,15 @@ const eggScrambleRecipe = [
 ]
 
 function removeDupesFromArray(arr) {
-  return
+  const newArr = []
+
+  arr.forEach((el) => {
+    if (!newArr.includes(el)) {
+      newArr.push(el)
+    }
+  })
+
+  return newArr
 }
 
 console.log(removeDupesFromArray(eggScrambleRecipe))
