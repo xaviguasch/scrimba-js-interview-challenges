@@ -46,7 +46,13 @@ Expected output: 9.97
 */
 
 function totalSavory(arr) {
-  return
+  return arr.reduce((acc, currV) => {
+    if (currV.type === 'savory') {
+      return acc + currV.price
+    } else {
+      return acc
+    }
+  }, 0)
 }
 
 console.log(totalSavory(shoppingCart))
