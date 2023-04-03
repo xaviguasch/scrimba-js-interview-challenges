@@ -44,7 +44,7 @@ Example output: 73.44389877777777
 */
 
 function total(arr) {
-  return
+  return arr.reduce((acc, currV) => acc + currV.price, 0).toFixed(2)
 }
 
 console.log(total(shoppingCart))
