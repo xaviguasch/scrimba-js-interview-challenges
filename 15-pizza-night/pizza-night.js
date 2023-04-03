@@ -20,7 +20,17 @@ const gameNightFood = {
 }
 
 function findTheWinner(obj) {
-  return
+  let mostVoted = ''
+  let highestVotes = 0
+
+  for (const key in obj) {
+    if (obj[key] > highestVotes) {
+      mostVoted = key
+      highestVotes = obj[key]
+    }
+  }
+
+  return `The winner is ${mostVoted} with ${highestVotes} votes!`
 }
 
 console.log(findTheWinner(gameNightFood))
