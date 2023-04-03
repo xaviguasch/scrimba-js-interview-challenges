@@ -28,7 +28,22 @@ const kittyPrizes = [
   '🐟',
 ]
 
-function flatten(arr) {}
+function flatten(arr) {
+  // With methods
+  // return arr.flat()
+
+  const newFlatArr = []
+
+  arr.forEach((el) => {
+    if (Array.isArray(el)) {
+      el.forEach((innerEl) => newFlatArr.push(innerEl))
+    } else {
+      newFlatArr.push(el)
+    }
+  })
+
+  return newFlatArr
+}
 
 console.log(flatten(kittyPrizes))
 console.log(flatten(kittyScores))
