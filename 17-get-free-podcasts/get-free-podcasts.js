@@ -1,4 +1,4 @@
-const data = [
+const podcasts = [
   {
     id: 1,
     title: 'Scrimba Podcast',
@@ -78,7 +78,12 @@ Expected output:
 */
 
 function getFreePodcasts(data) {
-  return
+  return data
+    .filter((pod) => !pod.paid)
+    .map((freePod) => {
+      const { duration, tags, hosts, genre, id, ...rest } = freePod
+      return { ...rest }
+    })
 }
 
 console.log(getFreePodcasts(podcasts))
