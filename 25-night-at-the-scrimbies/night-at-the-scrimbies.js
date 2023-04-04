@@ -75,9 +75,23 @@ Example output: ["🏆 Alex Booker", "⭐ Bob Smith", "💎 Camilla Lambert" ...
 */
 const awards = ['🏆', '⭐', '💎', '🥇', '👑']
 
-function getHosts(data) {}
+function getHosts(data) {
+  return data.reduce((acc, currV) => {
+    // return acc.concat(currV.hosts)
+    // alternative way
+    return [...acc, ...currV.hosts]
+  }, [])
+}
 
-function assignAwards(data) {}
+function assignAwards(data) {
+  const hosts = getHosts(podcasts)
 
-console.log(getHosts(podcasts))
+  return hosts.map((host) => {
+    const randomNum = Math.floor(Math.random() * awards.length)
+
+    return `${awards[randomNum]} ${host}`
+  })
+}
+
+// console.log(getHosts(podcasts))
 console.log(assignAwards(podcasts))
