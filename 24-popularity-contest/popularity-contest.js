@@ -38,6 +38,12 @@ To find the average, add up the total number of likes, then divide
 by the total number of posts.
 */
 
-function calcAverageLikes(data) {}
+function calcAverageLikes(data) {
+  const totalNumLikes = data.reduce((acc, currV) => {
+    return acc + currV.likes
+  }, 0)
+
+  return (totalNumLikes / data.length).toFixed(2)
+}
 
 console.log(calcAverageLikes(postData))
