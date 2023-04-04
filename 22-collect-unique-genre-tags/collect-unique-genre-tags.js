@@ -59,17 +59,29 @@ function getUniqueTags(data) {
   // solution with Set
   // return [...new Set(tagsArr)]
 
-  // alternative without Set
+  // alternative without Set, but it's not optimal because there's a nested loop
+  //   const noRepeatsArr = []
 
-  const noRepeatsArr = []
+  //   tagsArr.forEach((tag) => {
+  //     if (!noRepeatsArr.includes(tag)) {
+  //       noRepeatsArr.push(tag)
+  //     }
+  //   })
+
+  //   return noRepeatsArr
+
+  const hashMap = {}
+
+  const finalArr = []
 
   tagsArr.forEach((tag) => {
-    if (!noRepeatsArr.includes(tag)) {
-      noRepeatsArr.push(tag)
+    if (!hashMap[tag]) {
+      hashMap[tag] = true
+      finalArr.push(tag)
     }
   })
 
-  return noRepeatsArr
+  return finalArr
 }
 
 console.log(getUniqueTags(mediaData))
