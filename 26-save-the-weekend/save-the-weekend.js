@@ -93,7 +93,32 @@ Example description: "Coding Corner is a 55 minute education podcast hosted by T
 */
 
 function createDescriptionsFor(data) {
-  return
+  return data.map((pod) => {
+    function getHosts(arr) {
+      // check the length of each host array
+      // equals 1, return the one host
+      if (arr.length === 1) return arr[0]
+
+      return arr.map((host, index) => {
+        // is last in array?
+        if (index === arr.length - 1) {
+          // yes: add " and" to the host name
+          return ` and ${host}`
+        }
+        // no: return host
+        return ` ${host}`
+      })
+    }
+
+    const description = `${pod.title} is a ${pod.duration} minute ${
+      pod.genre
+    } podcast hosted by ${getHosts(pod.hosts)}`
+
+    return {
+      ...pod,
+      description,
+    }
+  })
 }
 
 console.log(createDescriptionsFor(podcasts))
