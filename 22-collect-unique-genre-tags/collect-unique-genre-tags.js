@@ -56,9 +56,11 @@ Expected output:
 function getUniqueTags(data) {
   const tagsArr = data.map((item) => item.tags).flat()
 
+  /////////////////////
   // solution with Set
   // return [...new Set(tagsArr)]
 
+  /////////////////////
   // alternative without Set, but it's not optimal because there's a nested loop
   //   const noRepeatsArr = []
 
@@ -72,16 +74,15 @@ function getUniqueTags(data) {
 
   const hashMap = {}
 
-  const finalArr = []
-
-  tagsArr.forEach((tag) => {
+  return tagsArr.filter((tag) => {
     if (!hashMap[tag]) {
       hashMap[tag] = true
-      finalArr.push(tag)
-    }
-  })
 
-  return finalArr
+      return true
+    }
+
+    return false
+  })
 }
 
 console.log(getUniqueTags(mediaData))
