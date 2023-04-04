@@ -54,7 +54,22 @@ Expected output:
 */
 
 function getUniqueTags(data) {
-  return
+  const tagsArr = data.map((item) => item.tags).flat()
+
+  // solution with Set
+  // return [...new Set(tagsArr)]
+
+  // alternative without Set
+
+  const noRepeatsArr = []
+
+  tagsArr.forEach((tag) => {
+    if (!noRepeatsArr.includes(tag)) {
+      noRepeatsArr.push(tag)
+    }
+  })
+
+  return noRepeatsArr
 }
 
 console.log(getUniqueTags(mediaData))
