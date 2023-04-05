@@ -10,12 +10,17 @@
 const api = 'https://apis.scrimba.com/emojihub/api/all/category/animals-and-nature'
 const flowerBed = document.querySelector('.emoji-flower-bed')
 
-function clearTheGarden(arr) {}
+function clearTheGarden(arr) {
+  return arr.filter((item) => {
+    return item.group.includes('bug') || item.group.includes('flower')
+  })
+}
 
 fetch(api)
   .then((response) => response.json())
   .then((data) => {
-    data.forEach((emoji) => {
+    const filteredData = clearTheGarden(data)
+    filteredData.forEach((emoji) => {
       flowerBed.innerHTML += `<li>${emoji.htmlCode}</li>`
     })
   })
