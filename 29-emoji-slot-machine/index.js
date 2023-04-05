@@ -13,8 +13,35 @@
 const slotMachine = document.querySelector('.emoji-slots-game')
 const food = 'https://apis.scrimba.com/emojihub/api/all/category/food-and-drink'
 
-function makeFruitArray(arr) {}
+function makeFruitArray(arr) {
+  return arr.filter((item) => item.group.includes('fruit'))
+}
 
-function getRandomFruits(arr) {}
+function getRandomFruits(arr) {
+  const randomFruitsArr = []
+
+  for (let i = 0; i < 9; i++) {
+    const randNum = Math.floor(Math.random() * arr.length)
+    randomFruitsArr.push(arr[randNum])
+  }
+
+  return randomFruitsArr
+}
 
 // write your fetch request here
+
+fetch(food)
+  .then((response) => response.json())
+  .then((data) => {
+    const fruits = makeFruitArray(data)
+    const randomFruits = getRandomFruits(fruits)
+
+    randomFruits.forEach((fruit) => {
+      slotMachine.innerHTML += `
+  <li>
+      ${fruit.htmlCode}
+  </li>
+`
+    })
+  })
+  .catch((err) => console.log(err))
